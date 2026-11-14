@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ni Idea pero con Encanto · Carta</title>
-<meta name="description" content="Carta de Ni Idea pero con Encanto. Fernando el Católico 77, Madrid.">
+<title>Ni Idea pero con Encanto · Bar en Moncloa, Madrid</title>
+<meta name="description" content="Ni Idea pero con Encanto: bar en Fernando el Católico 77 (Moncloa, Madrid). Cañas, cócteles, copas, raciones, pizzas y perritos. Terraza y comida para llevar.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pacifico&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -12,22 +12,43 @@
 </head>
 <body>
 <div class="wrap">
-  <header>
+  <header class="hero">
     <div class="logo">NI IDEA</div>
     <div class="tag">pero con Encanto</div>
-    <div class="addr">📍 <a href="https://maps.google.com/?q=Calle+de+Fernando+el+Cat%C3%B3lico+77,+Madrid" target="_blank" rel="noopener">Fernando el Católico 77, Madrid</a></div>
-    <div class="tarifa">Carta</div>
+    <p class="lead">Tu bar en Moncloa para unas cañas, un mojito o una copa, con algo rico para picar. Buen ambiente, precios de barrio y terraza.</p>
+    <a class="cta" href="/sala/">Ver la carta</a>
   </header>
-  <nav class="nav" id="nav" style="margin-top:14px"></nav>
-  <main id="menu"></main>
+
+  <div class="bloque">
+    <h2>El local</h2>
+    <p>Arriba tienes la barra, para tomar algo rápido y ver el ambiente. Abajo, un salón pequeño y tranquilo para ir con amigos. Y fuera, la terraza en Fernando el Católico.</p>
+  </div>
+
+  <div class="bloque">
+    <h2>Qué tenemos</h2>
+    <ul>
+      <li><b>Para picar</b> · tequeños, nachos, quesadillas, alitas, rabas, croquetas…</li>
+      <li><b>Pizzas, perritos y hamburguesas</b> · para cenar sin complicarse</li>
+      <li><b>Cervezas</b> · de grifo en doble y pinta, y tercios nacionales e internacionales</li>
+      <li><b>Cócteles y copas</b> · mojitos de sabores, caipiriña, Aperol Spritz y copazos</li>
+      <li><b>Postres</b> · coulant y gofre de chocolate</li>
+    </ul>
+  </div>
+
   <div class="banner"><span>Para llevar también</span></div>
+
+  <div class="bloque">
+    <h2>Dónde estamos</h2>
+    <p>Calle de Fernando el Católico, 77 · Madrid<br>A un paso de Moncloa.</p>
+    <iframe class="mapa" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps?q=Calle+de+Fernando+el+Cat%C3%B3lico+77,+Madrid&output=embed"
+      title="Mapa de Ni Idea pero con Encanto"></iframe>
+  </div>
+
   <footer>
-    Fernando el Católico 77 · Madrid<br>
+    Ni Idea pero con Encanto · Fernando el Católico 77 · Madrid<br>
     <a href="https://maps.google.com/?q=Calle+de+Fernando+el+Cat%C3%B3lico+77,+Madrid" target="_blank" rel="noopener">Cómo llegar</a>
-    <div class="iva">Precios con IVA incluido.</div>
   </footer>
 </div>
-<script>window.TARIFA = "sala";</script>
-<script src="/carta.js"></script>
 </body>
 </html>

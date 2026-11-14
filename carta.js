@@ -112,3 +112,17 @@ const eur = v => v.toFixed(2).replace('.',',') + ' €';
     return h + `</section>`;
   }).join('');
 })();
+
+// Resalta en la barra la sección que se está viendo
+(function(){
+  const links=[...document.querySelectorAll('#nav a')];
+  const obs=new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){
+      links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id));
+      const on=links.find(a=>a.classList.contains('on'));
+      if(on){ const n=document.getElementById('nav'); n.scrollTo({left:on.offsetLeft-n.clientWidth/2+on.clientWidth/2,behavior:'smooth'}); }
+    }});
+  },{rootMargin:'-60px 0px -70% 0px'});
+  document.querySelectorAll('main section').forEach(s=>obs.observe(s));
+})();
+
