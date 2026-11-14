@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ni Idea pero con Encanto · Carta</title>
+<meta name="description" content="Carta de Ni Idea pero con Encanto. Fernando el Católico 77, Madrid. Raciones, pizzas, perritos, cervezas, cócteles y copas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pacifico&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#141414; --card:#1d1d1d; --line:#c9a14a; --text:#f3efe6;
+    --muted:#a9a39a; --price:#e0533d; --accent:#f2c230;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;
+       line-height:1.35;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:560px;margin:0 auto;padding:0 16px 40px}
+  header{text-align:center;padding:28px 0 8px}
+  .logo{font-family:'Bebas Neue',sans-serif;font-size:58px;letter-spacing:2px;line-height:1}
+  .tag{font-family:Pacifico,cursive;font-size:22px;color:var(--accent);margin-top:2px}
+  .addr{color:var(--muted);font-size:14px;margin-top:10px}
+  .addr a{color:var(--text)}
+  .tabs{position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 0 10px;
+        display:flex;gap:8px}
+  .tabs button{flex:1;padding:12px 8px;border-radius:999px;border:1.5px solid var(--line);
+        background:transparent;color:var(--text);font:700 15px Inter,sans-serif;cursor:pointer}
+  .tabs button.on{background:var(--line);color:#141414}
+  .nav{display:flex;gap:6px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none}
+  .nav::-webkit-scrollbar{display:none}
+  .nav a{flex:0 0 auto;font-size:13px;color:var(--muted);text-decoration:none;
+         border:1px solid #333;border-radius:999px;padding:6px 12px}
+  section{background:var(--card);border:1.5px solid var(--line);border-radius:14px;
+          padding:14px 16px 8px;margin-top:18px;scroll-margin-top:72px}
+  h2{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:1px;margin-bottom:4px}
+  .note{color:var(--muted);font-size:12px;margin:-2px 0 6px}
+  .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+       padding:9px 0;border-bottom:1px dashed #333}
+  .row:last-child{border-bottom:0}
+  .row .n{font-size:15px}
+  .row .n small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+  .row .p{color:var(--price);font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .head2{display:flex;justify-content:flex-end;gap:0;font-size:11px;color:var(--muted);
+         font-weight:700;letter-spacing:.5px}
+  .head2 span,.row .p2{width:64px;text-align:right}
+  .row .p2{color:var(--price);font-weight:700;font-variant-numeric:tabular-nums}
+  .pp{display:flex}
+  h3{font-size:12px;letter-spacing:1px;color:var(--accent);text-transform:uppercase;margin:10px 0 0}
+  .banner{margin-top:24px;text-align:center}
+  .banner span{display:inline-block;background:var(--accent);color:#141414;font-family:Pacifico,cursive;
+          font-size:20px;padding:8px 22px;border-radius:12px}
+  footer{text-align:center;color:var(--muted);font-size:13px;margin-top:22px}
+  footer a{display:inline-block;margin-top:10px;color:#141414;background:var(--text);
+           text-decoration:none;font-weight:700;padding:10px 18px;border-radius:999px}
+  .iva{font-size:11px;margin-top:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">NI IDEA</div>
+    <div class="tag">pero con Encanto</div>
+    <div class="addr">📍 <a href="https://maps.google.com/?q=Calle+de+Fernando+el+Cat%C3%B3lico+77,+Madrid" target="_blank" rel="noopener">Fernando el Católico 77, Madrid</a></div>
+  </header>
+
+  <div class="tabs">
+    <button id="bSala" class="on" onclick="setT('sala')">Sala</button>
+    <button id="bTerr" onclick="setT('terraza')">Terraza</button>
+  </div>
+  <nav class="nav" id="nav"></nav>
+
+  <main id="menu"></main>
+
+  <div class="banner"><span>Para llevar también</span></div>
+
+  <footer>
+    Fernando el Católico 77 · Madrid<br>
+    <a href="https://maps.google.com/?q=Calle+de+Fernando+el+Cat%C3%B3lico+77,+Madrid" target="_blank" rel="noopener">Cómo llegar</a>
+    <div class="iva">Precios con IVA incluido.</div>
+  </footer>
+</div>
+
+<script>
+// [nombre, precio sala, precio terraza, nota opcional]
+const CARTA = [
+  {id:"raciones", t:"Raciones", items:[
+    ["Tequeños (6 uds.)",7.00,7.50],
+    ["Patatas gajo 4 salsas",5.00,5.40],
+    ["Patatas boniato 4 salsas",5.50,6.00],
+    ["Aros de cebolla 2 salsas",4.50,4.90],
+    ["Quesadillas 4 quesos",4.00,4.40],
+    ["Quesadillas 4 quesos con pollo",5.00,5.40],
+    ["Quesadilla 4 quesos con pulled",5.50,6.00],
+    ["Quesadilla ibérica con jamón",5.50,6.00],
+    ["Nachos con queso y salsas",5.00,5.40],
+    ["Rabas de calamar",8.50,8.60],
+    ["Lágrimas de pollo",7.00,7.50],
+    ["Croquetas de jamón (6 uds.)",3.90,4.30],
+    ["Alitas de pollo con barbacoa",7.00,7.50],
+    ["Empanadillas criollas (2 uds.)",4.20,4.60,"Jamón y queso, espinacas, caprese, pollo"],
+  ]},
+  {id:"asiatico", t:"Asiático", items:[
+    ["Gyozas de pollo y vegetales",6.50,7.00],
+    ["Samosas de pollo al curry (6 uds.)",5.00,5.40],
+  ]},
+  {id:"perritos", t:"Perritos", note:"Con patatas chips incluidas", items:[
+    ["Perrito clásico",3.00,3.30],
+    ["Gratinado cebolla frita",3.30,3.70],
+    ["Gratinado bacon",3.50,3.90],
+    ["Gratinado ibérico",3.50,3.90],
+  ]},
+  {id:"pizzas", t:"Pizzas", items:[
+    ["Margarita",6.00,6.50],
+    ["Cuatro quesos",7.00,7.50],
+    ["Barbacoa",7.00,7.50],
+    ["Doble pepperoni",7.00,7.50],
+    ["Jamón y champiñón",7.00,7.50],
+  ]},
+  {id:"hamburguesas", t:"Hamburguesas y más", items:[
+    ["Hamburguesa de pollo con pan rústico",4.80,5.20],
+    ["Hamburguesa de pulled pork, queso gratinado",4.90,5.30],
+    ["Sándwich mixto con queso gratinado",4.00,4.40],
+  ]},
+  {id:"postres", t:"Postres muy dulces", items:[
+    ["Coulant de chocolate",4.00,4.40],
+    ["Gofre de chocolate",4.00,4.40],
+  ]},
+  {id:"grifo", t:"Cervezas de grifo", two:["Doble","Pinta"], items:[
+    ["Amstel",[2.50,3.70],[2.90,3.90]],
+    ["18/70 La Rubia",[2.70,3.90],[3.10,4.00]],
+    ["Lagunitas IPA",[3.30,4.20],[3.70,4.40]],
+  ]},
+  {id:"tercios", t:"Tercios de botella", items:[
+    ["Ladrón de Manzanas",2.90,3.20],
+    ["Águila",2.90,3.20],
+    ["Águila sin filtrar",3.30,3.70],
+    ["Heineken",3.30,3.70],
+    ["Cruzcampo Gran Reserva",3.70,4.10],
+    ["Guinness",4.20,4.60],
+    ["La Cibeles",3.60,4.00],
+    ["Cibeles Imperial IPA",3.60,4.00],
+    ["El Alcázar",2.90,3.20],
+    ["Desperados",3.90,4.30],
+    ["Corona",3.90,4.30],
+    ["Judas",4.50,4.90],
+    ["Mort Subite",4.50,4.90],
+    ["Heineken 0,0",3.30,3.70],
+    ["Paulaner (0,5 L)",4.50,4.90],
+    ["Amstel Oro 0,0",2.90,3.20],
+    ["Hop House 13",4.00,4.40],
+    ["Cibeles sin gluten",3.60,4.00],
+  ]},
+  {id:"vinos", t:"Vinos", items:[
+    ["Tinto tempranillo",2.70,3.00],
+    ["Rioja tinto El Coto",3.70,4.10],
+    ["Ribera del Duero tinto",3.60,4.00],
+    ["Blanco El Coto",3.60,4.00],
+    ["Blanco semidulce El Coto",3.60,4.00],
+    ["Tinto de verano (450 ml)",4.00,4.40],
+  ]},
+  {id:"cocteles", t:"Cócteles", items:[
+    ["Mojito",6.00,6.50],
+    ["Mojito de fresa",6.20,6.70],
+    ["Mojito de mango",6.20,6.70],
+    ["Caipiriña",6.00,6.50],
+    ["Aperol Spritz",6.00,6.50],
+  ]},
+  {id:"copas", t:"Copazos", note:"Refresco incluido", items:[
+    ["Arehucas · Larios · DYC",5.00,5.40],
+    ["Santa Teresa · Brugal · Barceló · Cacique · Bombay · Beefeater · Seagram's",5.80,6.50],
+    ["White Label · Red Label · Ballantine's · J&B · Absolut · Fernet Branca · Jägermeister",5.80,6.50],
+  ]},
+  {id:"refrescos", t:"Refrescos", items:[
+    ["Coca-Cola, Fanta, Sprite…",2.50,2.80],
+    ["Nestea",3.20,3.60],
+  ]},
+];
+
+const eur = v => v.toFixed(2).replace('.',',') + ' €';
+let tarifa = 'sala';
+try { const s = localStorage.getItem('niidea_tarifa'); if (s) tarifa = s; } catch(e) {}
+
+function render(){
+  const idx = tarifa === 'sala' ? 1 : 2;
+  document.getElementById('bSala').classList.toggle('on', tarifa==='sala');
+  document.getElementById('bTerr').classList.toggle('on', tarifa==='terraza');
+  document.getElementById('nav').innerHTML =
+    CARTA.map(s => `<a href="#${s.id}">${s.t}</a>`).join('');
+  document.getElementById('menu').innerHTML = CARTA.map(s => {
+    let h = `<section id="${s.id}"><h2>${s.t}</h2>`;
+    if (s.note) h += `<div class="note">${s.note}</div>`;
+    if (s.two) h += `<div class="head2"><span>${s.two[0]}</span><span>${s.two[1]}</span></div>`;
+    h += s.items.map(it => {
+      const nota = it[3] ? `<small>${it[3]}</small>` : '';
+      const pr = s.two
+        ? `<div class="pp"><span class="p2">${eur(it[idx][0])}</span><span class="p2">${eur(it[idx][1])}</span></div>`
+        : `<span class="p">${eur(it[idx])}</span>`;
+      return `<div class="row"><span class="n">${it[0]}${nota}</span>${pr}</div>`;
+    }).join('');
+    return h + `</section>`;
+  }).join('');
+}
+function setT(t){
+  tarifa = t;
+  try { localStorage.setItem('niidea_tarifa', t); } catch(e) {}
+  render();
+}
+render();
+</script>
+</body>
+</html>
