@@ -95,6 +95,7 @@ const CARTA = [
 
 const eur = v => v.toFixed(2).replace('.',',') + ' €';
 (function(){
+  if (!document.getElementById('menu')) return;
   const idx = (window.TARIFA === 'terraza') ? 2 : 1;
   document.getElementById('nav').innerHTML =
     CARTA.map(s => `<a href="#${s.id}">${s.t}</a>`).join('');
@@ -115,6 +116,7 @@ const eur = v => v.toFixed(2).replace('.',',') + ' €';
 
 // Resalta en la barra la sección que se está viendo
 (function(){
+  if (!document.getElementById('nav')) return;
   const links=[...document.querySelectorAll('#nav a')];
   const obs=new IntersectionObserver(es=>{
     es.forEach(e=>{ if(e.isIntersecting){

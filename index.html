@@ -2,53 +2,136 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ni Idea pero con Encanto · Bar en Moncloa, Madrid</title>
 <meta name="description" content="Ni Idea pero con Encanto: bar en Fernando el Católico 77 (Moncloa, Madrid). Cañas, cócteles, copas, raciones, pizzas y perritos. Terraza y comida para llevar.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pacifico&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/estilo.css">
+<style>
+  .top{position:sticky;top:0;z-index:30;background:rgba(20,20,20,.96);backdrop-filter:blur(6px);
+       border-bottom:1px solid #2a2a2a}
+  .top .in{max-width:560px;margin:0 auto;padding:10px 16px 0;display:flex;align-items:center;justify-content:space-between}
+  .top .marca{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:1px;color:var(--text);text-decoration:none}
+  .top .marca span{font-family:Pacifico,cursive;font-size:13px;color:var(--accent);margin-left:6px;letter-spacing:0}
+  .top .carta{font-size:13px;font-weight:700;color:#141414;background:var(--line);padding:7px 14px;border-radius:999px;text-decoration:none}
+  .top nav{max-width:560px;margin:0 auto;display:flex;gap:6px;overflow-x:auto;padding:10px 16px;scrollbar-width:none}
+  .top nav::-webkit-scrollbar{display:none}
+  .top nav a{flex:0 0 auto;font-size:13px;color:var(--muted);text-decoration:none;border:1px solid #333;border-radius:999px;padding:6px 12px}
+  .top nav a.on{color:#141414;background:var(--line);border-color:var(--line)}
+  .hero h1{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:64px;letter-spacing:2px;line-height:1}
+  .botones{display:flex;gap:10px;justify-content:center;margin-top:24px}
+  .botones a{flex:1;max-width:200px;text-align:center;font-weight:700;font-size:15px;text-decoration:none;padding:14px 10px;border-radius:999px}
+  .b1{background:var(--line);color:#141414}
+  .b2{border:1.5px solid var(--line);color:var(--text)}
+  .cifras{display:flex;gap:10px;margin-top:28px}
+  .cifras div{flex:1;text-align:center;background:var(--card);border:1px solid #2f2f2f;border-radius:12px;padding:12px 6px}
+  .cifras b{display:block;font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--accent);font-weight:400;line-height:1}
+  .cifras span{font-size:12px;color:var(--muted)}
+  .bloque{scroll-margin-top:110px}
+  .sub{color:var(--muted);font-size:13px;margin:-4px 0 10px}
+  .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .links a{font-size:14px;color:var(--text);border:1px solid #444;border-radius:999px;padding:8px 14px;text-decoration:none}
+  footer .fl{display:flex;justify-content:center;gap:16px;margin-top:12px}
+  footer .fl a{background:none;color:var(--muted);padding:0;font-weight:600;text-decoration:underline}
+</style>
 </head>
 <body>
+<div class="top">
+  <div class="in">
+    <a class="marca" href="#inicio">NI IDEA<span>pero con Encanto</span></a>
+    <a class="carta" href="/sala/">Carta</a>
+  </div>
+  <nav id="topnav">
+    <a href="#grifo">Grifo</a>
+    <a href="#cocina">Cocina</a>
+    <a href="#cocteles">Cócteles</a>
+    <a href="#local">El local</a>
+    <a href="#llevar">Para llevar</a>
+    <a href="#donde">Dónde</a>
+  </nav>
+</div>
+
 <div class="wrap">
-  <header class="hero">
-    <div class="logo">NI IDEA</div>
+  <header class="hero" id="inicio">
+    <h1>NI IDEA</h1>
     <div class="tag">pero con Encanto</div>
-    <p class="lead">Tu bar en Moncloa para unas cañas, un mojito o una copa, con algo rico para picar. Buen ambiente, precios de barrio y terraza.</p>
-    <a class="cta" href="/sala/">Ver la carta</a>
+    <p class="lead">Tu bar en Moncloa para unas cañas, un mojito o una copa, con algo rico para picar. Buen ambiente, precios de barrio y terraza en Fernando el Católico.</p>
+    <div class="botones">
+      <a class="b1" href="/sala/">Ver la carta</a>
+      <a class="b2" href="https://www.google.com/maps/search/?api=1&query=Calle+de+Fernando+el+Cat%C3%B3lico+77+Madrid" target="_blank" rel="noopener">Cómo llegar</a>
+    </div>
+    <div class="cifras">
+      <div><b>2</b><span>plantas</span></div>
+      <div><b>+30</b><span>cervezas y copas</span></div>
+      <div><b>8</b><span>mesas de terraza</span></div>
+    </div>
   </header>
 
-  <div class="bloque">
+  <section class="bloque" id="grifo">
+    <h2>Hoy en el grifo</h2>
+    <div class="sub">Doble y pinta · precios de sala</div>
+    <div id="grifoList"></div>
+    <div class="links"><a href="/sala/#tercios">Ver los tercios</a></div>
+  </section>
+
+  <section class="bloque" id="cocina">
+    <h2>Para picar y cenar</h2>
+    <p>Tequeños, nachos, quesadillas, alitas, rabas, croquetas, gyozas y samosas. Y si vienes con hambre: pizzas, perritos gratinados con patatas chips y hamburguesas.</p>
+    <div class="links"><a href="/sala/#raciones">Raciones</a><a href="/sala/#pizzas">Pizzas</a><a href="/sala/#perritos">Perritos</a><a href="/sala/#postres">Postres</a></div>
+  </section>
+
+  <section class="bloque" id="cocteles">
+    <h2>Cócteles y copas</h2>
+    <div class="sub">Precios de sala · copas con refresco incluido</div>
+    <div id="coctelList"></div>
+    <div class="links"><a href="/sala/#copas">Ver copazos</a></div>
+  </section>
+
+  <section class="bloque" id="local">
     <h2>El local</h2>
-    <p>Arriba tienes la barra, para tomar algo rápido y ver el ambiente. Abajo, un salón pequeño y tranquilo para ir con amigos. Y fuera, la terraza en Fernando el Católico.</p>
-  </div>
+    <p>Arriba tienes la barra, para tomar algo rápido y ver el ambiente. Abajo, un salón pequeño y tranquilo para ir con amigos. Y fuera, la terraza.</p>
+  </section>
 
-  <div class="bloque">
-    <h2>Qué tenemos</h2>
-    <ul>
-      <li><b>Para picar</b> · tequeños, nachos, quesadillas, alitas, rabas, croquetas…</li>
-      <li><b>Pizzas, perritos y hamburguesas</b> · para cenar sin complicarse</li>
-      <li><b>Cervezas</b> · de grifo en doble y pinta, y tercios nacionales e internacionales</li>
-      <li><b>Cócteles y copas</b> · mojitos de sabores, caipiriña, Aperol Spritz y copazos</li>
-      <li><b>Postres</b> · coulant y gofre de chocolate</li>
-    </ul>
-  </div>
+  <section class="bloque" id="llevar">
+    <h2>Para llevar también</h2>
+    <p>Todo lo de la cocina te lo preparamos para llevar. Pídelo en barra y en un momento lo tienes.</p>
+  </section>
 
-  <div class="banner"><span>Para llevar también</span></div>
-
-  <div class="bloque">
+  <section class="bloque" id="donde">
     <h2>Dónde estamos</h2>
     <p>Calle de Fernando el Católico, 77 · Madrid<br>A un paso de Moncloa.</p>
     <iframe class="mapa" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
       src="https://www.google.com/maps?q=Calle+de+Fernando+el+Cat%C3%B3lico+77,+Madrid&output=embed"
       title="Mapa de Ni Idea pero con Encanto"></iframe>
-  </div>
+    <div class="links">
+      <a href="https://www.google.com/maps/search/?api=1&query=Calle+de+Fernando+el+Cat%C3%B3lico+77+Madrid" target="_blank" rel="noopener">Abrir en Google Maps</a>
+      <a href="/sala/">Ver la carta</a>
+    </div>
+  </section>
 
   <footer>
-    Ni Idea pero con Encanto · Fernando el Católico 77 · Madrid<br>
-    <a href="https://maps.google.com/?q=Calle+de+Fernando+el+Cat%C3%B3lico+77,+Madrid" target="_blank" rel="noopener">Cómo llegar</a>
+    <b style="color:var(--text)">Ni Idea pero con Encanto</b><br>
+    Fernando el Católico 77 · Madrid
+    <div class="fl"><a href="/sala/">Carta</a><a href="#donde">Cómo llegar</a></div>
   </footer>
 </div>
+
+<script src="/carta.js"></script>
+<script>
+  const sec = id => CARTA.find(s => s.id === id);
+  document.getElementById('grifoList').innerHTML =
+    `<div class="head2"><span>Doble</span><span>Pinta</span></div>` +
+    sec('grifo').items.map(it => `<div class="row"><span class="n">${it[0]}</span><div class="pp"><span class="p2">${eur(it[1][0])}</span><span class="p2">${eur(it[1][1])}</span></div></div>`).join('');
+  document.getElementById('coctelList').innerHTML =
+    sec('cocteles').items.map(it => `<div class="row"><span class="n">${it[0]}</span><span class="p">${eur(it[1])}</span></div>`).join('');
+  // Marca en la barra la sección visible
+  const links = [...document.querySelectorAll('#topnav a')];
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
+  }), {rootMargin: '-110px 0px -65% 0px'});
+  document.querySelectorAll('section.bloque').forEach(s => obs.observe(s));
+</script>
 </body>
 </html>
