@@ -1,0 +1,29 @@
+# Cada vez que hay un cambio en la rama main, sube la web al hosting de OVH por FTP.
+# La contraseña del FTP se guarda en GitHub como secreto: Settings > Secrets and variables > Actions > FTP_PASSWORD
+name: Subir web a OVH
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  subir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Subir por FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ftp.cluster129.hosting.ovh.net
+          username: niideaw
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          port: 21
+          local-dir: ./
+          server-dir: ./www/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            README.md
