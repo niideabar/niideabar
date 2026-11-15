@@ -16,6 +16,13 @@ var FICHAS = {
     // alergenos: ["Gluten", "Lácteos"],  // pendiente de confirmar con las etiquetas
   },
 
+  "Tequeños (6 uds.)": {
+    tipo: "plato", foto: "tequenos",
+    desc: "Palitos de masa rellenos de queso blanco, horneados hasta que se doran y el queso asoma fundido por las puntas. Se mojan en mermelada de fresa: el contraste dulce y salado, a la venezolana.",
+    lleva: ["Masa de trigo", "Queso blanco", "Mermelada de fresa"],
+    // alergenos: ["Gluten", "Lácteos"],  // pendiente de confirmar con las etiquetas
+  },
+
   /* ---------- Fichas propias de NI (no están en JB) ---------- */
   "Amstel": {
       "tipo": "cerveza",
