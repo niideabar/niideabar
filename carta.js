@@ -93,6 +93,11 @@ const CARTA = [
   ]},
 ];
 
+// Fotos de platos: nombre exacto del plato -> archivo en /img/carta/ (sin extensión)
+const FOTOS = {
+  "Quesadillas 4 quesos": "quesadilla-4-quesos",
+};
+
 const eur = v => v.toFixed(2).replace('.',',') + ' €';
 (function(){
   if (!document.getElementById('menu')) return;
@@ -108,7 +113,9 @@ const eur = v => v.toFixed(2).replace('.',',') + ' €';
       const pr = s.two
         ? `<div class="pp"><span class="p2">${eur(it[idx][0])}</span><span class="p2">${eur(it[idx][1])}</span></div>`
         : `<span class="p">${eur(it[idx])}</span>`;
-      return `<div class="row"><span class="n">${it[0]}${nota}</span>${pr}</div>`;
+      const f = FOTOS[it[0]];
+      const foto = f ? `<button class="foto" data-f="${f}" aria-label="Ver foto de ${it[0]}"><picture><source srcset="/img/carta/${f}.webp" type="image/webp"><img src="/img/carta/${f}.jpg" alt="${it[0]}" loading="lazy" width="1200" height="900"></picture></button>` : '';
+      return `<div class="row${f?' con-foto':''}">${foto}<span class="n">${it[0]}${nota}</span>${pr}</div>`;
     }).join('');
     return h + `</section>`;
   }).join('');
@@ -128,3 +135,16 @@ const eur = v => v.toFixed(2).replace('.',',') + ' €';
   document.querySelectorAll('main section').forEach(s=>obs.observe(s));
 })();
 
+
+// Al tocar una foto se ve en grande
+(function(){
+  if (!document.getElementById('menu')) return;
+  const box=document.createElement('div'); box.className='visor'; box.innerHTML='<img alt="">';
+  document.body.appendChild(box);
+  box.addEventListener('click',()=>box.classList.remove('on'));
+  document.getElementById('menu').addEventListener('click',e=>{
+    const b=e.target.closest('.foto'); if(!b) return;
+    const im=b.querySelector('img'); box.firstChild.src=im.currentSrc||im.src; box.firstChild.alt=im.alt;
+    box.classList.add('on');
+  });
+})();
