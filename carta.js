@@ -93,16 +93,7 @@ const CARTA = [
   ]},
 ];
 
-// Fichas de platos: nombre exacto del plato (como en CARTA) -> ficha.
-// foto: archivo en /img/carta/ sin extensión (.webp + .png)
-const FICHAS = {
-  "Quesadillas 4 quesos": {
-    foto: "quesadilla-4-quesos",
-    desc: "Dos tortillas de trigo bien doradas y, entre medias, una mezcla de cuatro quesos fundidos que se estira al cortarla. Llega a la mesa en tabla de madera con su guacamole para mojar.",
-    lleva: ["Tortilla de trigo", "Mezcla de 4 quesos", "Guacamole"],
-    // alergenos: ["Gluten", "Lácteos"],  // pendiente de confirmar con las etiquetas
-  },
-};
+var FICHAS = window.FICHAS || {};  // las fichas están en fichas.js
 
 const eur = v => v.toFixed(2).replace('.',',') + ' €';
 (function(){
@@ -121,9 +112,8 @@ const eur = v => v.toFixed(2).replace('.',',') + ' €';
         : `<span class="p">${eur(it[idx])}</span>`;
       const fi = FICHAS[it[0]];
       if (!fi) return `<div class="row"><span class="n">${it[0]}${nota}</span>${pr}</div>`;
-      const precio = s.two ? `${eur(it[idx][0])} / ${eur(it[idx][1])}` : eur(it[idx]);
-      const foto = fi.foto ? `<span class="foto"><picture><source srcset="/img/carta/${fi.foto}.webp" type="image/webp"><img src="/img/carta/${fi.foto}.png" alt="${it[0]}" loading="lazy" width="1200" height="900"></picture></span>` : '';
-      return `<button class="row con-ficha${fi.foto?' con-foto':''}" data-n="${it[0]}" data-p="${precio}" aria-label="Ver ficha de ${it[0]}">${foto}<span class="n">${it[0]}${nota}<em class="ver">Ver ficha ›</em></span>${pr}</button>`;
+      const mini = fi.foto ? `<span class="foto"><picture><source srcset="/img/carta/${fi.foto}.webp" type="image/webp"><img src="/img/carta/${fi.foto}.png" alt="" loading="lazy" width="1200" height="900"></picture></span>` : '';
+      return `<button type="button" class="row con-ficha${fi.foto?' con-foto':''}" data-n="${it[0].replace(/"/g,'&quot;')}">${mini}<span class="n">${it[0]}${nota}<em class="ver">Ver ficha ›</em></span>${pr}</button>`;
     }).join('');
     return h + `</section>`;
   }).join('');
@@ -144,25 +134,67 @@ const eur = v => v.toFixed(2).replace('.',',') + ' €';
 })();
 
 
-// Ficha del plato al tocarlo
+// Ficha al tocar un plato o una cerveza (mismo esquema que las fichas de JB)
 (function(){
-  if (!document.getElementById('menu')) return;
-  const box=document.createElement('div'); box.className='ficha'; box.setAttribute('role','dialog'); box.setAttribute('aria-modal','true');
-  document.body.appendChild(box);
-  const cerrar=()=>{ box.classList.remove('on'); document.body.style.overflow=''; };
-  box.addEventListener('click',e=>{ if(e.target===box||e.target.closest('.cerrar')) cerrar(); });
-  document.addEventListener('keydown',e=>{ if(e.key==='Escape') cerrar(); });
-  document.getElementById('menu').addEventListener('click',e=>{
-    const r=e.target.closest('.con-ficha'); if(!r) return;
-    const n=r.dataset.n, fi=FICHAS[n];
-    box.innerHTML=`<div class="hoja">
-      <button class="cerrar" aria-label="Cerrar">×</button>
-      ${fi.foto?`<picture><source srcset="/img/carta/${fi.foto}.webp" type="image/webp"><img src="/img/carta/${fi.foto}.png" alt="${n}"></picture>`:''}
-      <div class="cab"><h3>${n}</h3><span class="p">${r.dataset.p}</span></div>
-      ${fi.desc?`<p>${fi.desc}</p>`:''}
-      ${fi.lleva?`<h4>Lleva</h4><div class="chips">${fi.lleva.map(x=>`<span>${x}</span>`).join('')}</div>`:''}
-      ${fi.alergenos?`<h4>Alérgenos</h4><div class="chips al">${fi.alergenos.map(x=>`<span>${x}</span>`).join('')}</div>`:''}
-    </div>`;
-    box.classList.add('on'); document.body.style.overflow='hidden';
+  const menu=document.getElementById('menu'); if(!menu) return;
+  const idx=(window.TARIFA==='terraza')?2:1;
+  const esc=t=>String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+  const pic=(dir,f,cls)=>`<picture><source srcset="/img/${dir}/${f}.webp" type="image/webp"><img${cls?` class="${cls}"`:''} src="/img/${dir}/${f}.png" alt=""></picture>`;
+  const platos={};
+  CARTA.forEach(s=>s.items.forEach(it=>{ platos[it[0]]={it,s}; }));
+  const precioDe=n=>{ const d=platos[n]; if(!d) return null; const v=d.it[idx];
+    return Array.isArray(v) ? v.map((x,i)=>({et:(d.s.two||[])[i]||'',v:x})) : [{et:'',v}]; };
+
+  const capa=document.createElement('div'); capa.className='ficha-capa';
+  capa.innerHTML='<div class="ficha" role="dialog" aria-modal="true"></div>';
+  document.body.appendChild(capa);
+  const caja=capa.firstChild; let abierta=false;
+
+  function abrir(n, hist){
+    const f=FICHAS[n]; if(!f) return;
+    const pr=(precioDe(n)||[]).map(p=>`<div class="fi-pr">${p.et?`<span>${esc(p.et)}</span>`:''}${eur(p.v)}</div>`).join('');
+    let h='<div class="fi-barra"><button type="button" class="fi-x" aria-label="Cerrar">×</button></div>';
+    if(f.tipo==='cerveza'){
+      const datos=[['Estilo',f.estilo],['Origen',f.origen],['Alcohol',f.alcohol],['Amargor',f.amargor],['Servicio',f.servicio]]
+        .filter(x=>x[1]).map(x=>`<div><dt>${x[0]}</dt><dd>${esc(x[1])}</dd></div>`).join('');
+      const mar=(f.marida||[]).filter(m=>platos[m]).map(m=>{ const p=precioDe(m)[0];
+        return `<button type="button" class="fi-mar" data-plato="${esc(m)}">${esc(m)} <b>${eur(p.v)}</b></button>`; }).join('');
+      h+=`<div class="fi-top"><div class="fi-vaso">${pic('cervezas',f.vaso)}</div>
+          <div class="fi-cab">${f.logo?pic('cervezas',f.logo,'fi-logo'):''}<h2>${esc(n)}</h2><div class="fi-precios">${pr}</div></div></div>
+        <dl class="fi-datos">${datos}</dl>
+        <h4>Nota de cata</h4><p>${esc(f.cata)}</p>
+        ${f.historia?`<h4>Un poco de historia</h4><p>${esc(f.historia)}</p>`:''}
+        ${mar?`<h4>Pídela con…</h4><div class="fi-mars">${mar}</div>`:''}`;
+    } else {
+      h+=`${f.foto?`<div class="fi-foto">${pic('carta',f.foto)}</div>`:''}
+        <div class="fi-cab fi-cab-plato"><h2>${esc(n)}</h2><div class="fi-precios">${pr}</div></div>
+        ${f.desc?`<p>${esc(f.desc)}</p>`:''}
+        ${f.lleva?`<h4>Lleva</h4><div class="fi-chips">${f.lleva.map(x=>`<span>${esc(x)}</span>`).join('')}</div>`:''}
+        ${f.alergenos?`<h4>Alérgenos</h4><div class="fi-chips al">${f.alergenos.map(x=>`<span>${esc(x)}</span>`).join('')}</div>`:''}`;
+    }
+    h+='<button type="button" class="fi-volver">‹ Volver a la carta</button>';
+    caja.innerHTML=h; caja.scrollTop=0;
+    capa.classList.add('on'); document.documentElement.classList.add('ficha-abierta'); abierta=true;
+    if(hist!==false){ try{history.pushState({ficha:n},'');}catch(e){} }
+  }
+  function cerrar(desdeHist){
+    if(!abierta) return; capa.classList.remove('on'); document.documentElement.classList.remove('ficha-abierta'); abierta=false;
+    if(!desdeHist){ try{history.back();}catch(e){} }
+  }
+  function filaDe(n){ return [...menu.querySelectorAll('.con-ficha, .row')].find(r=>(r.dataset.n||r.querySelector('.n')?.firstChild?.textContent||'').trim()===n); }
+  capa.addEventListener('click',e=>{
+    if(e.target===capa||e.target.closest('.fi-x')||e.target.closest('.fi-volver')){ cerrar(); return; }
+    const b=e.target.closest('.fi-mar'); if(!b) return;
+    const destino=filaDe(b.dataset.plato); cerrar();
+    if(destino) setTimeout(()=>{
+      if(FICHAS[b.dataset.plato]){ abrir(b.dataset.plato); return; }
+      const y=destino.getBoundingClientRect().top+scrollY-(innerHeight-destino.offsetHeight)/2;
+      scrollTo({top:Math.max(0,y),behavior:'smooth'}); destino.classList.add('fi-brillo');
+      setTimeout(()=>destino.classList.remove('fi-brillo'),1800);
+    },350);
   });
+  capa.addEventListener('touchmove',e=>{ if(!e.target.closest('.ficha')) e.preventDefault(); },{passive:false});
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape') cerrar(); });
+  addEventListener('popstate',()=>{ if(abierta) cerrar(true); });
+  menu.addEventListener('click',e=>{ const r=e.target.closest('.con-ficha'); if(r) abrir(r.dataset.n); });
 })();

@@ -63,26 +63,53 @@ section{scroll-margin-top:56px}
 .bloque li b{color:var(--accent);font-weight:600}
 .mapa{width:100%;height:240px;border:0;border-radius:10px;margin-top:12px;filter:grayscale(.3)}
 
-/* Platos con ficha */
+/* Platos y cervezas con ficha */
 button.row{width:100%;background:none;border:0;border-bottom:1px dashed #333;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.row.con-ficha{transition:transform .12s}
+.row.con-ficha:active{transform:scale(.98)}
 .row.con-foto{align-items:center}
 .row.con-ficha .n{flex:1}
-.row .ver{display:block;font-style:normal;font-size:12px;color:var(--line);margin-top:3px}
+.row .ver{display:block;width:max-content;font-style:normal;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
+  color:#141414;background:var(--line);border-radius:99px;padding:3px 9px;margin-top:5px}
 .foto{flex:0 0 auto;width:72px;height:54px}
 .foto img{width:100%;height:100%;object-fit:contain;display:block}
-.ficha{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.75);display:none;align-items:flex-end;justify-content:center}
-.ficha.on{display:flex}
-.hoja{position:relative;width:100%;max-width:560px;max-height:92vh;overflow-y:auto;background:var(--card);
-      border:1.5px solid var(--line);border-bottom:0;border-radius:20px 20px 0 0;padding:18px 18px 28px;animation:sube .25s ease-out}
-@keyframes sube{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
-.hoja img{width:100%;height:auto;display:block;margin:4px 0 6px}
-.hoja .cab{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-.hoja h3{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:1px;color:var(--text);text-transform:none;margin:0;font-weight:400}
-.hoja .p{color:var(--price);font-weight:700;font-size:20px;white-space:nowrap}
-.hoja p{font-size:15px;line-height:1.55;margin-top:8px}
-.hoja h4{font-size:12px;letter-spacing:1px;color:var(--accent);text-transform:uppercase;margin:16px 0 6px}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chips span{font-size:13px;border:1px solid #3a3a3a;border-radius:999px;padding:5px 11px}
-.chips.al span{border-color:var(--price);color:#f4b3a8}
-.cerrar{position:absolute;top:10px;right:12px;width:36px;height:36px;border-radius:50%;border:0;background:#2b2b2b;color:var(--text);font-size:22px;line-height:1;cursor:pointer}
-@media(min-width:600px){.ficha{align-items:center}.hoja{border-radius:20px;border-bottom:1.5px solid var(--line)}}
+.fi-brillo{box-shadow:0 0 0 3px var(--accent);border-radius:8px}
+html.ficha-abierta{overflow:hidden}
+
+.ficha-capa{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.72);display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .2s}
+.ficha-capa.on{opacity:1;pointer-events:auto}
+.ficha{position:relative;width:calc(100% - 24px);max-width:520px;max-height:86vh;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+  background:var(--card);border:1.5px solid var(--line);color:var(--text);border-radius:18px;padding:0 16px 18px;
+  transform:scale(.96);transition:transform .2s;box-shadow:0 10px 30px rgba(0,0,0,.6)}
+.ficha-capa.on .ficha{transform:none}
+.fi-barra{position:sticky;top:0;z-index:2;display:flex;justify-content:flex-end;padding:10px 0 4px;margin:0 -6px}
+.fi-x{width:40px;height:40px;border:0;border-radius:50%;background:#2b2b2b;color:var(--text);font-size:26px;line-height:38px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.4)}
+.fi-top{display:grid;grid-template-columns:36% 1fr;gap:12px;align-items:end;margin-top:-34px}
+.fi-vaso{height:200px;display:flex;align-items:flex-end;justify-content:center}
+.fi-vaso img{max-height:200px;max-width:100%;filter:drop-shadow(0 6px 10px rgba(0,0,0,.6))}
+.fi-logo{max-width:130px;max-height:74px;display:block;margin-bottom:8px;background:#f3efe6;border-radius:10px;padding:5px 8px}
+.fi-foto{margin-top:-30px}
+.fi-foto img{width:100%;height:auto;display:block}
+.fi-cab-plato{margin-top:6px}
+.ficha h2{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;letter-spacing:1px;color:var(--text);font-size:32px;line-height:1;margin:0 0 8px}
+.fi-precios{display:flex;gap:18px;flex-wrap:wrap}
+.fi-pr{font-family:'Bebas Neue',Impact,sans-serif;font-size:30px;color:var(--price);line-height:1}
+.fi-pr span{display:block;font-family:Inter,sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:2px}
+.fi-datos{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:18px 0 6px}
+.fi-datos div{background:#262626;border-radius:10px;padding:7px 10px}
+.fi-datos div:last-child:nth-child(odd){grid-column:1/-1}
+.fi-datos dt{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--line)}
+.fi-datos dd{margin:1px 0 0;font-weight:600;font-size:15px}
+.ficha h4{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;letter-spacing:1px;color:var(--accent);font-size:20px;margin:16px 0 4px}
+.ficha p{margin:0;font-size:15px;line-height:1.5}
+.fi-chips{display:flex;flex-wrap:wrap;gap:6px}
+.fi-chips span{font-size:13px;border:1px solid #3a3a3a;border-radius:999px;padding:5px 11px}
+.fi-chips.al span{border-color:var(--price);color:#f4b3a8}
+.fi-mars{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.fi-mar{display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left;border:0;border-radius:12px;
+  background:#2b2b2b;color:var(--text);font:600 15px Inter,sans-serif;padding:12px 14px;cursor:pointer}
+.fi-mar b{color:var(--price);white-space:nowrap;margin-left:auto}
+.fi-mar:after{content:"›";font-size:22px;margin-left:4px;color:var(--line)}
+.fi-volver{display:block;width:100%;margin-top:18px;border:2px solid var(--line);background:transparent;color:var(--line);border-radius:12px;
+  font:700 16px Inter,sans-serif;padding:12px;cursor:pointer}
