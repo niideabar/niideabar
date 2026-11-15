@@ -16,7 +16,7 @@ var FICHAS = {
     // alergenos: ["Gluten", "Lácteos"],  // pendiente de confirmar con las etiquetas
   },
 
-  /* ---------- Fichas propias de NI (no están en JB). Imagen: dibujo genérico hasta tener foto ---------- */
+  /* ---------- Fichas propias de NI (no están en JB) ---------- */
   "Amstel": {
       "tipo": "cerveza",
       "vaso": "amstel",
