@@ -16,7 +16,32 @@ var FICHAS = {
     // alergenos: ["Gluten", "Lácteos"],  // pendiente de confirmar con las etiquetas
   },
 
-  /* ---------- CERVEZAS ---------- */
+  /* ---------- Fichas propias de NI (no están en JB). Imagen: dibujo genérico hasta tener foto ---------- */
+  "Amstel": {
+      "tipo": "cerveza",
+      "vaso": "amstel",
+      "estilo": "Lager",
+      "origen": "Ámsterdam (Países Bajos)",
+      "alcohol": "5,0 %",
+      "servicio": "Doble o pinta, bien fría",
+      "cata": "Rubia dorada y brillante, con espuma blanca y compacta. Aroma suave a cereal y malta, cuerpo ligero y un amargor muy moderado. Refrescante y fácil de beber: la caña de toda la vida.",
+      "historia": "Nació en 1870 en Ámsterdam y tomó el nombre del río Amstel, junto al que estaba la fábrica. En España la elabora Heineken España, que en 2018 renovó su receta para hacerla 100 % malta de cebada.",
+      "marida": ["Patatas gajo 4 salsas", "Croquetas de jamón (6 uds.)", "Perrito clásico"]
+  },
+
+  "Corona": {
+      "tipo": "cerveza",
+      "vaso": "corona",
+      "estilo": "Pale lager",
+      "origen": "México",
+      "alcohol": "4,5 %",
+      "servicio": "Tercio bien frío, con una rodaja de lima en el cuello",
+      "cata": "Dorada pálida y muy clara, de cuerpo ligero y burbuja viva. Aroma suave a cereal, apenas amarga y con un final limpio y seco. La lima le añade un toque cítrico y todavía más frescura.",
+      "historia": "Nació en 1925 con la Cervecería Modelo, en Ciudad de México. Fue pionera en embotellar una lager en botella transparente, que hoy es su seña de identidad.",
+      "marida": ["Nachos con queso y salsas", "Quesadillas 4 quesos con pollo", "Alitas de pollo con barbacoa"]
+  },
+
+  /* ---------- CERVEZAS (textos de JB) ---------- */
   "18/70 La Rubia": {
       "tipo": "cerveza",
       "vaso": "18-70-la-rubia",
