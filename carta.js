@@ -114,7 +114,7 @@ const eur = v => v.toFixed(2).replace('.',',') + ' €';
         ? `<div class="pp"><span class="p2">${eur(it[idx][0])}</span><span class="p2">${eur(it[idx][1])}</span></div>`
         : `<span class="p">${eur(it[idx])}</span>`;
       const f = FOTOS[it[0]];
-      const foto = f ? `<button class="foto" data-f="${f}" aria-label="Ver foto de ${it[0]}"><picture><source srcset="/img/carta/${f}.webp" type="image/webp"><img src="/img/carta/${f}.jpg" alt="${it[0]}" loading="lazy" width="1200" height="900"></picture></button>` : '';
+      const foto = f ? `<button class="foto" data-f="${f}" aria-label="Ver foto de ${it[0]}"><picture><source srcset="/img/carta/${f}.webp" type="image/webp"><img src="/img/carta/${f}.png" alt="${it[0]}" loading="lazy" width="1200" height="900"></picture></button>` : '';
       return `<div class="row${f?' con-foto':''}">${foto}<span class="n">${it[0]}${nota}</span>${pr}</div>`;
     }).join('');
     return h + `</section>`;
