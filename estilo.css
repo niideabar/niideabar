@@ -63,11 +63,26 @@ section{scroll-margin-top:56px}
 .bloque li b{color:var(--accent);font-weight:600}
 .mapa{width:100%;height:240px;border:0;border-radius:10px;margin-top:12px;filter:grayscale(.3)}
 
-/* Fotos de platos */
+/* Platos con ficha */
+button.row{width:100%;background:none;border:0;border-bottom:1px dashed #333;color:inherit;font:inherit;text-align:left;cursor:pointer}
 .row.con-foto{align-items:center}
-.foto{flex:0 0 auto;width:72px;height:54px;border:0;padding:0;cursor:zoom-in;background:none}
+.row.con-ficha .n{flex:1}
+.row .ver{display:block;font-style:normal;font-size:12px;color:var(--line);margin-top:3px}
+.foto{flex:0 0 auto;width:72px;height:54px}
 .foto img{width:100%;height:100%;object-fit:contain;display:block}
-.row.con-foto .n{flex:1}
-.visor{position:fixed;inset:0;z-index:50;background:rgba(10,10,10,.97);display:none;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
-.visor.on{display:flex}
-.visor img{max-width:100%;max-height:100%;border-radius:12px}
+.ficha{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.75);display:none;align-items:flex-end;justify-content:center}
+.ficha.on{display:flex}
+.hoja{position:relative;width:100%;max-width:560px;max-height:92vh;overflow-y:auto;background:var(--card);
+      border:1.5px solid var(--line);border-bottom:0;border-radius:20px 20px 0 0;padding:18px 18px 28px;animation:sube .25s ease-out}
+@keyframes sube{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+.hoja img{width:100%;height:auto;display:block;margin:4px 0 6px}
+.hoja .cab{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.hoja h3{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:1px;color:var(--text);text-transform:none;margin:0;font-weight:400}
+.hoja .p{color:var(--price);font-weight:700;font-size:20px;white-space:nowrap}
+.hoja p{font-size:15px;line-height:1.55;margin-top:8px}
+.hoja h4{font-size:12px;letter-spacing:1px;color:var(--accent);text-transform:uppercase;margin:16px 0 6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font-size:13px;border:1px solid #3a3a3a;border-radius:999px;padding:5px 11px}
+.chips.al span{border-color:var(--price);color:#f4b3a8}
+.cerrar{position:absolute;top:10px;right:12px;width:36px;height:36px;border-radius:50%;border:0;background:#2b2b2b;color:var(--text);font-size:22px;line-height:1;cursor:pointer}
+@media(min-width:600px){.ficha{align-items:center}.hoja{border-radius:20px;border-bottom:1.5px solid var(--line)}}

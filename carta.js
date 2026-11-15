@@ -93,9 +93,15 @@ const CARTA = [
   ]},
 ];
 
-// Fotos de platos: nombre exacto del plato -> archivo en /img/carta/ (sin extensión)
-const FOTOS = {
-  "Quesadillas 4 quesos": "quesadilla-4-quesos",
+// Fichas de platos: nombre exacto del plato (como en CARTA) -> ficha.
+// foto: archivo en /img/carta/ sin extensión (.webp + .png)
+const FICHAS = {
+  "Quesadillas 4 quesos": {
+    foto: "quesadilla-4-quesos",
+    desc: "Dos tortillas de trigo bien doradas y, entre medias, una mezcla de cuatro quesos fundidos que se estira al cortarla. Llega a la mesa en tabla de madera con su guacamole para mojar.",
+    lleva: ["Tortilla de trigo", "Mezcla de 4 quesos", "Guacamole"],
+    // alergenos: ["Gluten", "Lácteos"],  // pendiente de confirmar con las etiquetas
+  },
 };
 
 const eur = v => v.toFixed(2).replace('.',',') + ' €';
@@ -113,9 +119,11 @@ const eur = v => v.toFixed(2).replace('.',',') + ' €';
       const pr = s.two
         ? `<div class="pp"><span class="p2">${eur(it[idx][0])}</span><span class="p2">${eur(it[idx][1])}</span></div>`
         : `<span class="p">${eur(it[idx])}</span>`;
-      const f = FOTOS[it[0]];
-      const foto = f ? `<button class="foto" data-f="${f}" aria-label="Ver foto de ${it[0]}"><picture><source srcset="/img/carta/${f}.webp" type="image/webp"><img src="/img/carta/${f}.png" alt="${it[0]}" loading="lazy" width="1200" height="900"></picture></button>` : '';
-      return `<div class="row${f?' con-foto':''}">${foto}<span class="n">${it[0]}${nota}</span>${pr}</div>`;
+      const fi = FICHAS[it[0]];
+      if (!fi) return `<div class="row"><span class="n">${it[0]}${nota}</span>${pr}</div>`;
+      const precio = s.two ? `${eur(it[idx][0])} / ${eur(it[idx][1])}` : eur(it[idx]);
+      const foto = fi.foto ? `<span class="foto"><picture><source srcset="/img/carta/${fi.foto}.webp" type="image/webp"><img src="/img/carta/${fi.foto}.png" alt="${it[0]}" loading="lazy" width="1200" height="900"></picture></span>` : '';
+      return `<button class="row con-ficha${fi.foto?' con-foto':''}" data-n="${it[0]}" data-p="${precio}" aria-label="Ver ficha de ${it[0]}">${foto}<span class="n">${it[0]}${nota}<em class="ver">Ver ficha ›</em></span>${pr}</button>`;
     }).join('');
     return h + `</section>`;
   }).join('');
@@ -136,15 +144,25 @@ const eur = v => v.toFixed(2).replace('.',',') + ' €';
 })();
 
 
-// Al tocar una foto se ve en grande
+// Ficha del plato al tocarlo
 (function(){
   if (!document.getElementById('menu')) return;
-  const box=document.createElement('div'); box.className='visor'; box.innerHTML='<img alt="">';
+  const box=document.createElement('div'); box.className='ficha'; box.setAttribute('role','dialog'); box.setAttribute('aria-modal','true');
   document.body.appendChild(box);
-  box.addEventListener('click',()=>box.classList.remove('on'));
+  const cerrar=()=>{ box.classList.remove('on'); document.body.style.overflow=''; };
+  box.addEventListener('click',e=>{ if(e.target===box||e.target.closest('.cerrar')) cerrar(); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape') cerrar(); });
   document.getElementById('menu').addEventListener('click',e=>{
-    const b=e.target.closest('.foto'); if(!b) return;
-    const im=b.querySelector('img'); box.firstChild.src=im.currentSrc||im.src; box.firstChild.alt=im.alt;
-    box.classList.add('on');
+    const r=e.target.closest('.con-ficha'); if(!r) return;
+    const n=r.dataset.n, fi=FICHAS[n];
+    box.innerHTML=`<div class="hoja">
+      <button class="cerrar" aria-label="Cerrar">×</button>
+      ${fi.foto?`<picture><source srcset="/img/carta/${fi.foto}.webp" type="image/webp"><img src="/img/carta/${fi.foto}.png" alt="${n}"></picture>`:''}
+      <div class="cab"><h3>${n}</h3><span class="p">${r.dataset.p}</span></div>
+      ${fi.desc?`<p>${fi.desc}</p>`:''}
+      ${fi.lleva?`<h4>Lleva</h4><div class="chips">${fi.lleva.map(x=>`<span>${x}</span>`).join('')}</div>`:''}
+      ${fi.alergenos?`<h4>Alérgenos</h4><div class="chips al">${fi.alergenos.map(x=>`<span>${x}</span>`).join('')}</div>`:''}
+    </div>`;
+    box.classList.add('on'); document.body.style.overflow='hidden';
   });
 })();
