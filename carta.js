@@ -68,12 +68,13 @@ const CARTA = [
     ["Heineken 0,0",3.30,3.70],
     ["Amstel Oro 0,0",2.90,3.20],
   ]},
-  {id:"vinos", t:"Vinos", items:[
+  {id:"vinos", t:"Vinos", note:"Precio por copa", items:[
     ["Tinto tempranillo",2.70,3.00],
     ["Rioja tinto El Coto",3.70,4.10],
     ["Ribera del Duero tinto",3.60,4.00],
     ["Blanco El Coto",3.60,4.00],
     ["Blanco semidulce El Coto",3.60,4.00],
+    ["Botella de vino",17.00,18.00,"El vino que quieras de la carta"],
     ["Tinto de verano (450 ml)",4.00,4.40],
   ]},
   {id:"cocteles", t:"Cócteles", items:[
