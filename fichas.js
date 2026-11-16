@@ -23,6 +23,36 @@ var FICHAS = {
     // alergenos: ["Gluten", "Lácteos"],  // pendiente de confirmar con las etiquetas
   },
 
+  "Croquetas de jamón (6 uds.)": {
+    tipo: "plato", foto: "croquetas-jamon",
+    desc: "Croquetas de jamón cremosas por dentro y doradas por fuera, en tabla de madera con su salsa para mojar. Un clásico de barra que nunca falla.",
+    lleva: ["Croquetas de jamón", "Salsa para mojar"],
+  },
+
+  "Nachos con queso y salsas": {
+    tipo: "plato", foto: "nachos",
+    desc: "Un buen bol de totopos de maíz con queso fundido por encima, de los que se estiran al cogerlos, y guacamole aparte para mojar. Para compartir con unas cañas.",
+    lleva: ["Totopos de maíz", "Queso fundido", "Guacamole"],
+  },
+
+  "Alitas de pollo con barbacoa": {
+    tipo: "plato", foto: "alitas-barbacoa",
+    desc: "Alitas de pollo horneadas hasta que la piel queda dorada y crujiente, con salsa barbacoa aparte para mojar. Se comen con las manos, sin complejos.",
+    lleva: ["Alitas de pollo", "Salsa barbacoa"],
+  },
+
+  "Perrito clásico": {
+    tipo: "plato", foto: "perrito-clasico",
+    desc: "Pan de perrito tierno con su salchicha, mayonesa, un hilo de salsa barbacoa y cebolla crujiente por encima. Llega con patatas chips de acompañamiento.",
+    lleva: ["Pan de perrito", "Salchicha", "Mayonesa", "Salsa barbacoa", "Cebolla crujiente", "Patatas chips"],
+  },
+
+  "Doble pepperoni": {
+    tipo: "plato", foto: "doble-pepperoni",
+    desc: "Pizza con base de tomate y mozzarella fundida, cubierta con doble ración de pepperoni que se riza y se tuesta en los bordes al hornearse. Para los que nunca tienen bastante.",
+    lleva: ["Masa de pizza", "Tomate", "Mozzarella", "Doble de pepperoni"],
+  },
+
   /* ---------- Fichas propias de NI (no están en JB) ---------- */
   "Amstel": {
       "tipo": "cerveza",

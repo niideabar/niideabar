@@ -171,6 +171,9 @@ const eur = v => v.toFixed(2).replace('.',',') + ' €';
         ${f.desc?`<p>${esc(f.desc)}</p>`:''}
         ${f.lleva?`<h4>Lleva</h4><div class="fi-chips">${f.lleva.map(x=>`<span>${esc(x)}</span>`).join('')}</div>`:''}
         ${f.alergenos?`<h4>Alérgenos</h4><div class="fi-chips al">${f.alergenos.map(x=>`<span>${esc(x)}</span>`).join('')}</div>`:''}`;
+      const cervezas=Object.keys(FICHAS).filter(k=>FICHAS[k].tipo==='cerveza'&&(FICHAS[k].marida||[]).includes(n)&&platos[k]).slice(0,4);
+      if(cervezas.length) h+=`<h4>Pídelo con…</h4><div class="fi-mars">${cervezas.map(k=>{const p=precioDe(k)[0];
+        return `<button type="button" class="fi-mar" data-plato="${esc(k)}">${esc(k)} <b>${eur(p.v)}</b></button>`;}).join('')}</div>`;
     }
     h+='<button type="button" class="fi-volver">‹ Volver a la carta</button>';
     caja.innerHTML=h; caja.scrollTop=0;
