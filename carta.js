@@ -83,7 +83,7 @@ const CARTA = [
     ["Caipiriña",6.00,6.50],
     ["Aperol Spritz",6.00,6.50],
   ]},
-  {id:"copas", t:"Copazos", note:"Refresco incluido", items:[
+  {id:"copas", t:"Copazos", note:"Refresco incluido (excepto Monster, +1 €)", items:[
     ["Arehucas · Larios · DYC",5.00,5.40],
     ["Santa Teresa · Brugal · Barceló · Cacique · Bombay · Beefeater · Seagram's",5.80,6.50],
     ["White Label · Red Label · Ballantine's · J&B · Absolut · Fernet Branca · Jägermeister",5.80,6.50],
