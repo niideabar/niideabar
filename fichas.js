@@ -43,8 +43,8 @@ var FICHAS = {
 
   "Perrito clásico": {
     tipo: "plato", foto: "perrito-clasico",
-    desc: "Pan de perrito tierno con su salchicha, mayonesa, un hilo de salsa barbacoa y cebolla crujiente por encima. Llega con patatas chips de acompañamiento.",
-    lleva: ["Pan de perrito", "Salchicha", "Mayonesa", "Salsa barbacoa", "Cebolla crujiente", "Patatas chips"],
+    desc: "Pan de perrito tierno con su salchicha, mayonesa, un hilo de kétchup y cebolla crujiente por encima. Si lo prefieres, pídelo con salsa barbacoa en vez de kétchup. Llega con patatas chips de acompañamiento.",
+    lleva: ["Pan de perrito", "Salchicha", "Mayonesa", "Kétchup (o barbacoa, si la pides)", "Cebolla crujiente", "Patatas chips"],
   },
 
   "Doble pepperoni": {
