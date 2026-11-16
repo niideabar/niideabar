@@ -121,3 +121,6 @@ header,.hero{position:relative}
 .g-res svg{width:28px;height:28px;display:block}
 .g-st{color:#fbbc04;font-size:11px;letter-spacing:1px;line-height:1}
 .g-tx{font:700 10px Inter,Arial,sans-serif;color:#202124;text-transform:uppercase;letter-spacing:.04em;line-height:1.1}
+
+/* Subtítulo dentro de una sección (p. ej. Sin alcohol) */
+.subt{font-family:'Bebas Neue',Impact,sans-serif;font-size:20px;letter-spacing:1px;color:var(--accent);margin:18px 0 2px;padding-top:12px;border-top:1px solid var(--line)}

@@ -61,11 +61,12 @@ const CARTA = [
     ["Corona",3.90,4.30],
     ["Judas",4.50,4.90],
     ["Mort Subite",4.50,4.90],
-    ["Heineken 0,0",3.30,3.70],
     ["Paulaner (0,5 L)",4.50,4.90],
-    ["Amstel Oro 0,0",2.90,3.20],
     ["Hop House 13",4.00,4.40],
     ["Cibeles sin gluten",3.60,4.00],
+    "Sin alcohol · 0,0",
+    ["Heineken 0,0",3.30,3.70],
+    ["Amstel Oro 0,0",2.90,3.20],
   ]},
   {id:"vinos", t:"Vinos", items:[
     ["Tinto tempranillo",2.70,3.00],
@@ -106,6 +107,7 @@ const eur = v => v.toFixed(2).replace('.',',') + ' €';
     if (s.note) h += `<div class="note">${s.note}</div>`;
     if (s.two) h += `<div class="head2"><span>${s.two[0]}</span><span>${s.two[1]}</span></div>`;
     h += s.items.map(it => {
+      if (typeof it === 'string') return `<div class="subt">${it}</div>`;
       const nota = it[3] ? `<small>${it[3]}</small>` : '';
       const pr = s.two
         ? `<div class="pp"><span class="p2">${eur(it[idx][0])}</span><span class="p2">${eur(it[idx][1])}</span></div>`
@@ -141,7 +143,7 @@ const eur = v => v.toFixed(2).replace('.',',') + ' €';
   const esc=t=>String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
   const pic=(dir,f,cls)=>`<picture><source srcset="/img/${dir}/${f}.webp" type="image/webp"><img${cls?` class="${cls}"`:''} src="/img/${dir}/${f}.png" alt=""></picture>`;
   const platos={};
-  CARTA.forEach(s=>s.items.forEach(it=>{ platos[it[0]]={it,s}; }));
+  CARTA.forEach(s=>s.items.forEach(it=>{ if(Array.isArray(it)) platos[it[0]]={it,s}; }));
   const precioDe=n=>{ const d=platos[n]; if(!d) return null; const v=d.it[idx];
     return Array.isArray(v) ? v.map((x,i)=>({et:(d.s.two||[])[i]||'',v:x})) : [{et:'',v}]; };
 
