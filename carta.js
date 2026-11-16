@@ -4,7 +4,7 @@ const CARTA = [
     ["Tequeños (6 uds.)",7.00,7.50],
     ["Patatas gajo 4 salsas",5.00,5.40],
     ["Patatas boniato 4 salsas",5.50,6.00],
-    ["Aros de cebolla 2 salsas",4.50,4.90],
+    ["Aros de cebolla con mayonesa",4.50,4.90],
     ["Quesadillas 4 quesos",4.00,4.40],
     ["Quesadillas 4 quesos con pollo",5.00,5.40],
     ["Quesadilla 4 quesos con pulled",5.50,6.00],

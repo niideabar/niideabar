@@ -59,10 +59,10 @@ var FICHAS = {
     lleva: ["Tortilla de trigo", "Mezcla de 4 quesos", "Pulled pork", "Guacamole"],
   },
 
-  "Aros de cebolla 2 salsas": {
+  "Aros de cebolla con mayonesa": {
     tipo: "plato", foto: "aros-cebolla",
-    desc: "Aros de cebolla rebozados y horneados hasta quedar dorados y crujientes por fuera, con la cebolla tierna y dulce por dentro. Vienen con dos salsas para mojar.",
-    lleva: ["Aros de cebolla rebozados", "2 salsas para mojar"],
+    desc: "Aros de cebolla rebozados y horneados hasta quedar dorados y crujientes por fuera, con la cebolla tierna y dulce por dentro. Vienen con mayonesa para mojar.",
+    lleva: ["Aros de cebolla rebozados", "Mayonesa"],
   },
 
   /* ---------- Fichas propias de NI (no están en JB) ---------- */
@@ -134,7 +134,7 @@ var FICHAS = {
       "historia": "Llegó a España en 2017 como alternativa a la cerveza: una sidra moderna y refrescante, pensada para tomar bien fría y con hielo.",
       "marida": [
           "Quesadillas 4 quesos",
-          "Aros de cebolla 2 salsas",
+          "Aros de cebolla con mayonesa",
           "Empanadillas criollas (2 uds.)"
       ]
   },
