@@ -53,6 +53,12 @@ var FICHAS = {
     lleva: ["Masa de pizza", "Tomate", "Mozzarella", "Doble de pepperoni"],
   },
 
+  "Quesadilla 4 quesos con pulled": {
+    tipo: "plato", foto: "quesadilla-pulled",
+    desc: "Nuestra quesadilla de cuatro quesos con pulled pork: carne de cerdo deshilachada, jugosa y con su salsa, entre dos tortillas de trigo doradas. Llega cortada en triángulos, lista para compartir, con guacamole para mojar.",
+    lleva: ["Tortilla de trigo", "Mezcla de 4 quesos", "Pulled pork", "Guacamole"],
+  },
+
   /* ---------- Fichas propias de NI (no están en JB) ---------- */
   "Amstel": {
       "tipo": "cerveza",
