@@ -59,6 +59,12 @@ var FICHAS = {
     lleva: ["Tortilla de trigo", "Mezcla de 4 quesos", "Pulled pork", "Guacamole"],
   },
 
+  "Aros de cebolla 2 salsas": {
+    tipo: "plato", foto: "aros-cebolla",
+    desc: "Aros de cebolla rebozados y horneados hasta quedar dorados y crujientes por fuera, con la cebolla tierna y dulce por dentro. Vienen con dos salsas para mojar.",
+    lleva: ["Aros de cebolla rebozados", "2 salsas para mojar"],
+  },
+
   /* ---------- Fichas propias de NI (no están en JB) ---------- */
   "Amstel": {
       "tipo": "cerveza",
