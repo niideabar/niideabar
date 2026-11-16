@@ -25,8 +25,8 @@ var FICHAS = {
 
   "Croquetas de jamón (6 uds.)": {
     tipo: "plato", foto: "croquetas-jamon",
-    desc: "Croquetas de jamón cremosas por dentro y doradas por fuera, en tabla de madera con su salsa para mojar. Un clásico de barra que nunca falla.",
-    lleva: ["Croquetas de jamón", "Salsa para mojar"],
+    desc: "Croquetas de jamón cremosas por dentro y doradas por fuera, en tabla de madera con kétchup para mojar. Un clásico de barra que nunca falla.",
+    lleva: ["Croquetas de jamón", "Kétchup"],
   },
 
   "Nachos con queso y salsas": {
