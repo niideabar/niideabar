@@ -12,7 +12,7 @@ const OFERTAS = [
     enlace: { texto: "Seguir a @niideabar", url: "https://www.instagram.com/niideabar/" },
     chip: "🥃 Chupito gratis con cada copa si nos sigues en Instagram",
     tarifas: ["sala"],
-    noches: { desde: "2026-11-17", hasta: "2026-11-18" },
+    noches: { desde: "2026-11-17", hasta: "2026-11-30" },
     inicio: "21:00",
     fin: "00:30",
     seccion: "copas",
