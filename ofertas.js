@@ -35,40 +35,67 @@ const OFERTAS = [
     return d.toISOString().slice(0, 10);
   }
 
-  function estaActiva(o){
-    if (!o.activa || !o.tarifas.includes(tarifa)) return false;
+  function nocheActual(o){
     const { fecha, min } = ahoraMadrid();
     const ini = aMin(o.inicio), fin = aMin(o.fin);
-    let noche = null;
-    if (fin > ini) {                         // franja en el mismo día
-      if (min >= ini && min < fin) noche = fecha;
-    } else {                                 // franja que pasa de medianoche
-      if (min >= ini) noche = fecha;
-      else if (min < fin) noche = diaAnterior(fecha);
-    }
+    if (fin > ini) return (min >= ini && min < fin) ? fecha : null;
+    if (min >= ini) return fecha;
+    if (min < fin) return diaAnterior(fecha);
+    return null;
+  }
+  function estaActiva(o){
+    if (!o.activa || !o.tarifas.includes(tarifa)) return false;
+    const noche = nocheActual(o);
     return noche !== null && noche >= o.noches.desde && noche <= o.noches.hasta;
+  }
+  // Ventana emergente (mismo estilo que las fichas)
+  let capa=null;
+  function ventana(o){
+    if(!capa){
+      capa=document.createElement('div'); capa.className='ficha-capa oferta-capa';
+      capa.innerHTML='<div class="ficha oferta-ficha" role="dialog" aria-modal="true"></div>';
+      document.body.appendChild(capa);
+      capa.addEventListener('click',e=>{
+        if(e.target===capa||e.target.closest('.fi-x')||e.target.closest('.fi-volver')) cerrar();
+      });
+      document.addEventListener('keydown',e=>{ if(e.key==='Escape') cerrar(); });
+    }
+    capa.firstChild.innerHTML =
+      '<div class="fi-barra"><button type="button" class="fi-x" aria-label="Cerrar">×</button></div>' +
+      `<div class="of-emoji">🥃</div>` +
+      `<div class="of-et">Oferta de hoy · de ${o.inicio} a ${o.fin}</div>` +
+      `<h2>${o.titulo}</h2><p>${o.texto}</p>` +
+      (o.enlace ? `<a class="of-btn" href="${o.enlace.url}" target="_blank" rel="noopener">${o.enlace.texto}</a>` : '') +
+      '<button type="button" class="fi-volver">Ver la carta</button>';
+    capa.firstChild.scrollTop=0;
+    capa.classList.add('on'); document.documentElement.classList.add('ficha-abierta');
+  }
+  function cerrar(){
+    if(!capa) return; capa.classList.remove('on'); document.documentElement.classList.remove('ficha-abierta');
   }
 
   function pintar(){
-    document.querySelectorAll(".oferta-banner,.oferta-chip").forEach(e => e.remove());
+    document.querySelectorAll(".oferta-chip").forEach(e => e.remove());
     const activas = OFERTAS.filter(estaActiva);
-    if (!activas.length) return;
-    const menu = document.getElementById("menu");
-    if (!menu) return;
-    activas.forEach(o => {
-      const b = document.createElement("div");
-      b.className = "oferta-banner";
-      b.innerHTML = `<div class="of-et">Oferta de hoy · ${o.inicio} a ${o.fin}</div><div class="of-ti">${o.titulo}</div><div class="of-tx">${o.texto}</div>` +
-        (o.enlace ? `<a class="of-btn" href="${o.enlace.url}" target="_blank" rel="noopener">${o.enlace.texto}</a>` : "");
-      menu.parentNode.insertBefore(b, menu);
+    if (!activas.length) { cerrar(); return; }
+    if (!document.getElementById("menu")) return;
+    activas.forEach((o, i) => {
       if (o.seccion) {
         const h = document.querySelector(`#${o.seccion} h2`);
         if (h) {
-          const c = document.createElement("div");
-          c.className = "oferta-chip";
+          const c = document.createElement("button");
+          c.type = "button"; c.className = "oferta-chip";
           c.textContent = (o.chip || ("🥃 " + o.titulo)) + " · hasta las " + o.fin;
+          c.addEventListener("click", () => ventana(o));
           h.insertAdjacentElement("afterend", c);
         }
+      }
+      // Se abre sola una vez por noche y dispositivo
+      const clave = "oferta-vista:" + o.titulo + ":" + nocheActual(o);
+      let vista = false; try { vista = localStorage.getItem(clave) === "1"; } catch(e) {}
+      if (!vista && i === 0) {
+        ventana(o);
+        try { localStorage.setItem(clave, "1"); } catch(e) {}
       }
     });
   }
