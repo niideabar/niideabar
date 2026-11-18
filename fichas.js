@@ -35,10 +35,10 @@ var FICHAS = {
     lleva: ["Totopos de maíz", "Queso fundido", "Guacamole"],
   },
 
-  "Alitas de pollo con barbacoa": {
+  "Alitas de pollo": {
     tipo: "plato", foto: "alitas-barbacoa",
-    desc: "Alitas de pollo horneadas hasta que la piel queda dorada y crujiente, con salsa barbacoa aparte para mojar. Se comen con las manos, sin complejos.",
-    lleva: ["Alitas de pollo", "Salsa barbacoa"],
+    desc: "Alitas de pollo horneadas hasta que la piel queda dorada y crujiente, con la salsa que elijas aparte para mojar: mayonesa, kétchup, barbacoa o baconesa. Se comen con las manos, sin complejos.",
+    lleva: ["Alitas de pollo", "Salsa a elegir: mayonesa, kétchup, barbacoa o baconesa"],
   },
 
   "Perrito clásico": {
@@ -59,10 +59,10 @@ var FICHAS = {
     lleva: ["Tortilla de trigo", "Mezcla de 4 quesos", "Pulled pork", "Guacamole"],
   },
 
-  "Aros de cebolla con mayonesa": {
+  "Aros de cebolla": {
     tipo: "plato", foto: "aros-cebolla",
-    desc: "Aros de cebolla rebozados y horneados hasta quedar dorados y crujientes por fuera, con la cebolla tierna y dulce por dentro. Vienen con mayonesa para mojar.",
-    lleva: ["Aros de cebolla rebozados", "Mayonesa"],
+    desc: "Aros de cebolla rebozados y horneados hasta quedar dorados y crujientes por fuera, con la cebolla tierna y dulce por dentro. Vienen con la salsa que elijas para mojar: mayonesa, kétchup, barbacoa o baconesa.",
+    lleva: ["Aros de cebolla rebozados", "Salsa a elegir: mayonesa, kétchup, barbacoa o baconesa"],
   },
 
   "Patatas gajo 4 salsas": {
@@ -99,7 +99,7 @@ var FICHAS = {
       "servicio": "Tercio bien frío, con una rodaja de lima en el cuello",
       "cata": "Dorada pálida y muy clara, de cuerpo ligero y burbuja viva. Aroma suave a cereal, apenas amarga y con un final limpio y seco. La lima le añade un toque cítrico y todavía más frescura.",
       "historia": "Nació en 1925 con la Cervecería Modelo, en Ciudad de México. Fue pionera en embotellar una lager en botella transparente, que hoy es su seña de identidad.",
-      "marida": ["Nachos con queso y salsa guacamole", "Quesadillas 4 quesos con pollo", "Alitas de pollo con barbacoa"]
+      "marida": ["Nachos con queso y salsa guacamole", "Quesadillas 4 quesos con pollo", "Alitas de pollo"]
   },
 
   /* ---------- CERVEZAS (textos de JB) ---------- */
@@ -114,7 +114,7 @@ var FICHAS = {
       "cata": "Intensa de sabor y aun así muy fácil de beber. Aroma frutal y un amargor que aportan sus lúpulos: Nugget, herbal y amaderado, y Perle, muy aromático.",
       "historia": "Nació en las barras del País Vasco, donde se vendía en barril y en producciones limitadas. Los hosteleros la convirtieron en su seña de identidad.",
       "marida": [
-          "Alitas de pollo con barbacoa",
+          "Alitas de pollo",
           "Hamburguesa de pulled pork, queso gratinado",
           "Croquetas de jamón (6 uds.)"
       ]
@@ -130,7 +130,7 @@ var FICHAS = {
       "cata": "Dorada, con corona de espuma blanca. En nariz, hierba, flores, resina, cítricos y fruta tropical. En boca es amarga pero equilibrada, con notas de hierba, flores y caramelo; cuerpo medio y final seco.",
       "historia": "Tony Magee empezó a hacer cerveza en la cocina de casa, en el norte de California, hasta que casi quema los fogones. Su mujer le pidió que se fuera a otra parte, y en 1993 abrió Lagunitas Brewing Company junto al pueblo de Lagunitas.",
       "marida": [
-          "Alitas de pollo con barbacoa",
+          "Alitas de pollo",
           "Nachos con queso y salsa guacamole",
           "Samosas de pollo al curry (6 uds.)"
       ]
@@ -146,7 +146,7 @@ var FICHAS = {
       "historia": "Llegó a España en 2017 como alternativa a la cerveza: una sidra moderna y refrescante, pensada para tomar bien fría y con hielo.",
       "marida": [
           "Quesadillas 4 quesos",
-          "Aros de cebolla con mayonesa",
+          "Aros de cebolla",
           "Empanadillas criollas (2 uds.)"
       ]
   },
@@ -254,7 +254,7 @@ var FICHAS = {
       "cata": "Color bronce denso y espuma consistente. Notas de naranja y maracuyá dulce; se nota el alcohol de entrada y después un amargor ácido intenso, sin resecar.",
       "historia": "Más de 5 kilos de lúpulos aromáticos: la reina de los aromas de La Cibeles. Amargor intenso arropado por maracuyá, mango y uva. Todo un reto para novatos.",
       "marida": [
-          "Alitas de pollo con barbacoa",
+          "Alitas de pollo",
           "Doble pepperoni",
           "Nachos con queso y salsa guacamole"
       ]
@@ -288,7 +288,7 @@ var FICHAS = {
       "marida": [
           "Nachos con queso y salsa guacamole",
           "Quesadillas 4 quesos con pollo",
-          "Alitas de pollo con barbacoa"
+          "Alitas de pollo"
       ]
   },
 

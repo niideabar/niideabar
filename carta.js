@@ -4,7 +4,7 @@ const CARTA = [
     ["Tequeños (6 uds.)",7.00,7.50],
     ["Patatas gajo 4 salsas",5.00,5.40],
     ["Patatas boniato 4 salsas",5.50,6.00],
-    ["Aros de cebolla con mayonesa",4.50,4.90],
+    ["Aros de cebolla",4.50,4.90,"Salsa a elegir: mayonesa, kétchup, barbacoa o baconesa"],
     ["Quesadillas 4 quesos",4.00,4.40],
     ["Quesadillas 4 quesos con pollo",5.00,5.40],
     ["Quesadilla 4 quesos con pulled",5.50,6.00],
@@ -13,7 +13,7 @@ const CARTA = [
     ["Rabas de calamar",8.50,8.60],
     ["Lágrimas de pollo",7.00,7.50,"Salsa a elegir: mayonesa, kétchup, barbacoa o baconesa"],
     ["Croquetas de jamón (6 uds.)",3.90,4.30],
-    ["Alitas de pollo con barbacoa",7.00,7.50],
+    ["Alitas de pollo",7.00,7.50,"Salsa a elegir: mayonesa, kétchup, barbacoa o baconesa"],
     ["Empanadillas criollas (2 uds.)",4.20,4.60,"Jamón y queso, espinacas, caprese, pollo"],
   ]},
   {id:"asiatico", t:"Asiático", items:[
