@@ -29,7 +29,7 @@ var FICHAS = {
     lleva: ["Croquetas de jamón", "Kétchup"],
   },
 
-  "Nachos con queso y salsas": {
+  "Nachos con queso y salsa guacamole": {
     tipo: "plato", foto: "nachos",
     desc: "Un buen bol de totopos de maíz con queso fundido por encima, de los que se estiran al cogerlos, y guacamole aparte para mojar. Para compartir con unas cañas.",
     lleva: ["Totopos de maíz", "Queso fundido", "Guacamole"],
@@ -73,8 +73,8 @@ var FICHAS = {
 
   "Lágrimas de pollo": {
     tipo: "plato", foto: "lagrimas-pollo",
-    desc: "Tiras de pollo empanadas y horneadas hasta quedar bien doradas y crujientes, con la carne jugosa por dentro. Se sirven en tabla de madera con salsa para mojar.",
-    lleva: ["Pollo empanado", "Salsa para mojar"],
+    desc: "Tiras de pollo empanadas y horneadas hasta quedar bien doradas y crujientes, con la carne jugosa por dentro. Se sirven en tabla de madera con la salsa que elijas para mojar: mayonesa, kétchup, barbacoa o baconesa.",
+    lleva: ["Pollo empanado", "Salsa a elegir: mayonesa, kétchup, barbacoa o baconesa"],
   },
 
   /* ---------- Fichas propias de NI (no están en JB) ---------- */
@@ -99,7 +99,7 @@ var FICHAS = {
       "servicio": "Tercio bien frío, con una rodaja de lima en el cuello",
       "cata": "Dorada pálida y muy clara, de cuerpo ligero y burbuja viva. Aroma suave a cereal, apenas amarga y con un final limpio y seco. La lima le añade un toque cítrico y todavía más frescura.",
       "historia": "Nació en 1925 con la Cervecería Modelo, en Ciudad de México. Fue pionera en embotellar una lager en botella transparente, que hoy es su seña de identidad.",
-      "marida": ["Nachos con queso y salsas", "Quesadillas 4 quesos con pollo", "Alitas de pollo con barbacoa"]
+      "marida": ["Nachos con queso y salsa guacamole", "Quesadillas 4 quesos con pollo", "Alitas de pollo con barbacoa"]
   },
 
   /* ---------- CERVEZAS (textos de JB) ---------- */
@@ -131,7 +131,7 @@ var FICHAS = {
       "historia": "Tony Magee empezó a hacer cerveza en la cocina de casa, en el norte de California, hasta que casi quema los fogones. Su mujer le pidió que se fuera a otra parte, y en 1993 abrió Lagunitas Brewing Company junto al pueblo de Lagunitas.",
       "marida": [
           "Alitas de pollo con barbacoa",
-          "Nachos con queso y salsas",
+          "Nachos con queso y salsa guacamole",
           "Samosas de pollo al curry (6 uds.)"
       ]
   },
@@ -256,7 +256,7 @@ var FICHAS = {
       "marida": [
           "Alitas de pollo con barbacoa",
           "Doble pepperoni",
-          "Nachos con queso y salsas"
+          "Nachos con queso y salsa guacamole"
       ]
   },
 
@@ -286,7 +286,7 @@ var FICHAS = {
       "cata": "Dorada. En nariz manda el aroma a tequila, con toques cítricos y de maíz. En boca es rubia y con cuerpo, con ese toque de tequila, ligeramente amarga y con cítricos refrescantes.",
       "historia": "Rebelde y con carácter: una cerveza que rompe con la forma tradicional de beber cerveza.",
       "marida": [
-          "Nachos con queso y salsas",
+          "Nachos con queso y salsa guacamole",
           "Quesadillas 4 quesos con pollo",
           "Alitas de pollo con barbacoa"
       ]
