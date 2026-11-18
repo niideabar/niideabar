@@ -21,6 +21,8 @@ const OFERTAS = [
 
 (function(){
   const tarifa = window.TARIFA || "sala";
+  // Para probar a cualquier hora: añade ?oferta=ver a la dirección (p. ej. niideabar.es/sala/?oferta=ver)
+  const probar = /[?&]oferta=ver\b/.test(location.search);
 
   // Fecha y hora actuales en Madrid
   function ahoraMadrid(){
@@ -45,6 +47,7 @@ const OFERTAS = [
   }
   function estaActiva(o){
     if (!o.activa || !o.tarifas.includes(tarifa)) return false;
+    if (probar) return true;
     const noche = nocheActual(o);
     return noche !== null && noche >= o.noches.desde && noche <= o.noches.hasta;
   }
@@ -93,7 +96,7 @@ const OFERTAS = [
       // Se abre sola una vez por noche y dispositivo
       const clave = "oferta-vista:" + o.titulo + ":" + nocheActual(o);
       let vista = false; try { vista = localStorage.getItem(clave) === "1"; } catch(e) {}
-      if (!vista && i === 0) {
+      if ((!vista || probar) && i === 0) {
         ventana(o);
         try { localStorage.setItem(clave, "1"); } catch(e) {}
       }
