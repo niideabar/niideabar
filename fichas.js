@@ -54,7 +54,7 @@ var FICHAS = {
   },
 
   "Quesadilla 4 quesos con pulled": {
-    tipo: "plato", foto: "quesadilla-pulled",
+    tipo: "plato", foto: "quesadilla-pulled-2",
     desc: "Nuestra quesadilla de cuatro quesos con pulled pork: carne de cerdo deshilachada, jugosa y con su salsa, entre dos tortillas de trigo doradas. Llega cortada en triángulos, lista para compartir, con guacamole para mojar.",
     lleva: ["Tortilla de trigo", "Mezcla de 4 quesos", "Pulled pork", "Guacamole"],
   },
@@ -63,6 +63,18 @@ var FICHAS = {
     tipo: "plato", foto: "aros-cebolla",
     desc: "Aros de cebolla rebozados y horneados hasta quedar dorados y crujientes por fuera, con la cebolla tierna y dulce por dentro. Vienen con mayonesa para mojar.",
     lleva: ["Aros de cebolla rebozados", "Mayonesa"],
+  },
+
+  "Patatas gajo 4 salsas": {
+    tipo: "plato", foto: "patatas-gajo",
+    desc: "Patatas en gajo con su piel, especiadas y horneadas hasta que quedan doradas y crujientes por fuera y tiernas por dentro. Llegan en un plato redondo con cuatro salsas alrededor para ir mojando.",
+    lleva: ["Patata en gajo con piel", "Especias", "4 salsas para mojar"],
+  },
+
+  "Lágrimas de pollo": {
+    tipo: "plato", foto: "lagrimas-pollo",
+    desc: "Tiras de pollo empanadas y horneadas hasta quedar bien doradas y crujientes, con la carne jugosa por dentro. Se sirven en tabla de madera con salsa para mojar.",
+    lleva: ["Pollo empanado", "Salsa para mojar"],
   },
 
   /* ---------- Fichas propias de NI (no están en JB) ---------- */
