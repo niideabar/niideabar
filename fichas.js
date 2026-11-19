@@ -47,6 +47,12 @@ var FICHAS = {
     lleva: ["Pan de perrito", "Salchicha", "Mayonesa", "Kétchup (o barbacoa, si la pides)", "Cebolla crujiente", "Patatas chips"],
   },
 
+  "Gratinado bacon": {
+    tipo: "plato", foto: "perrito-gratinado-bacon",
+    desc: "Pan de perrito con su salchicha, cubierto de queso fundido y gratinado y dados de bacon bien tostados. Por encima, un buen hilo de baconesa. Llega con patatas chips de acompañamiento.",
+    lleva: ["Pan de perrito", "Salchicha", "Queso gratinado", "Bacon en dados", "Baconesa", "Patatas chips"],
+  },
+
   "Doble pepperoni": {
     tipo: "plato", foto: "doble-pepperoni",
     desc: "Pizza con base de tomate y mozzarella fundida, cubierta con doble ración de pepperoni que se riza y se tuesta en los bordes al hornearse. Para los que nunca tienen bastante.",
