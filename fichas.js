@@ -61,8 +61,14 @@ var FICHAS = {
 
   "Hamburguesa de pollo con pan rústico": {
     tipo: "plato", foto: "hamburguesa-pollo",
-    desc: "Pollo empanado y crujiente en pan rústico con queso fundido, lechuga fresca, una buena rodaja de tomate y salsa. Llega con patatas chips de acompañamiento.",
-    lleva: ["Pan rústico", "Pollo empanado", "Queso fundido", "Lechuga", "Tomate", "Salsa", "Patatas chips"],
+    desc: "Pollo empanado y crujiente en pan rústico con queso fundido, lechuga fresca, una buena rodaja de tomate y kétchup. Llega con patatas chips de acompañamiento.",
+    lleva: ["Pan rústico", "Pollo empanado", "Queso fundido", "Lechuga", "Tomate", "Kétchup", "Patatas chips"],
+  },
+
+  "Margarita": {
+    tipo: "plato", foto: "pizza-margarita",
+    desc: "La pizza de siempre: base de tomate y mucha mozzarella fundida y gratinada, con el borde dorado y crujiente. Sencilla y sin fallo.",
+    lleva: ["Masa de pizza", "Tomate", "Mozzarella"],
   },
 
   "Doble pepperoni": {
