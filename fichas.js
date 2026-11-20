@@ -53,6 +53,18 @@ var FICHAS = {
     lleva: ["Pan de perrito", "Salchicha", "Queso gratinado", "Bacon en dados", "Baconesa", "Patatas chips"],
   },
 
+  "Gyozas de pollo y vegetales": {
+    tipo: "plato", foto: "gyozas-pollo",
+    desc: "Empanadillas japonesas de masa fina rellenas de pollo y verduras, doradas por fuera y jugosas por dentro. Se sirven en tabla de madera con salsa de soja para mojar.",
+    lleva: ["Gyozas de pollo y verduras", "Salsa de soja"],
+  },
+
+  "Hamburguesa de pollo con pan rústico": {
+    tipo: "plato", foto: "hamburguesa-pollo",
+    desc: "Pollo empanado y crujiente en pan rústico con queso fundido, lechuga fresca, una buena rodaja de tomate y salsa. Llega con patatas chips de acompañamiento.",
+    lleva: ["Pan rústico", "Pollo empanado", "Queso fundido", "Lechuga", "Tomate", "Salsa", "Patatas chips"],
+  },
+
   "Doble pepperoni": {
     tipo: "plato", foto: "doble-pepperoni",
     desc: "Pizza con base de tomate y mozzarella fundida, cubierta con doble ración de pepperoni que se riza y se tuesta en los bordes al hornearse. Para los que nunca tienen bastante.",
