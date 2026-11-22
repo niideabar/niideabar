@@ -47,6 +47,12 @@ var FICHAS = {
     lleva: ["Pan de perrito", "Salchicha", "Mayonesa", "Kétchup (o barbacoa, si la pides)", "Cebolla crujiente", "Patatas chips"],
   },
 
+  "Gratinado cebolla frita": {
+    tipo: "plato", foto: "perrito-gratinado-cebolla",
+    desc: "Pan de perrito con su salchicha, cubierto de queso fundido y gratinado, con hilos de kétchup y mayonesa y un buen puñado de cebolla frita crujiente por encima. Llega con patatas chips de acompañamiento.",
+    lleva: ["Pan de perrito", "Salchicha", "Queso gratinado", "Kétchup", "Mayonesa", "Cebolla frita", "Patatas chips"],
+  },
+
   "Gratinado bacon": {
     tipo: "plato", foto: "perrito-gratinado-bacon",
     desc: "Pan de perrito con su salchicha, cubierto de queso fundido y gratinado y dados de bacon bien tostados. Por encima, un buen hilo de baconesa. Llega con patatas chips de acompañamiento.",
