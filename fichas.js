@@ -103,8 +103,8 @@ var FICHAS = {
 
   "Rabas de calamar": {
     tipo: "plato", foto: "rabas-calamar",
-    desc: "Tiras de calamar rebozadas, doradas y crujientes por fuera y tiernas por dentro. Se sirven en pizarra con dos salsas para mojar y un gajo de limón.",
-    lleva: ["Calamar rebozado", "Dos salsas para mojar", "Limón"],
+    desc: "Tiras de calamar rebozadas, doradas y crujientes por fuera y tiernas por dentro. Se sirven en pizarra con mayonesa y alioli para mojar y un gajo de limón.",
+    lleva: ["Calamar rebozado", "Mayonesa", "Alioli", "Limón"],
   },
 
   "Lágrimas de pollo": {
