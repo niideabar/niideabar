@@ -101,6 +101,12 @@ var FICHAS = {
     lleva: ["Patata en gajo con piel", "Especias", "4 salsas para mojar"],
   },
 
+  "Rabas de calamar": {
+    tipo: "plato", foto: "rabas-calamar",
+    desc: "Tiras de calamar rebozadas, doradas y crujientes por fuera y tiernas por dentro. Se sirven en pizarra con dos salsas para mojar y un gajo de limón.",
+    lleva: ["Calamar rebozado", "Dos salsas para mojar", "Limón"],
+  },
+
   "Lágrimas de pollo": {
     tipo: "plato", foto: "lagrimas-pollo",
     desc: "Tiras de pollo empanadas y horneadas hasta quedar bien doradas y crujientes, con la carne jugosa por dentro. Se sirven en tabla de madera con la salsa que elijas para mojar: mayonesa, kétchup, barbacoa o baconesa.",
