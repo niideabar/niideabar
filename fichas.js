@@ -101,6 +101,12 @@ var FICHAS = {
     lleva: ["Patata en gajo con piel", "Especias", "4 salsas para mojar"],
   },
 
+  "Patatas boniato 4 salsas": {
+    tipo: "plato", foto: "patatas-boniato",
+    desc: "Bastones de boniato horneados, dorados por fuera y tiernos y dulces por dentro, con un toque de sal y especias. Llegan en un plato redondo con cuatro salsas alrededor para ir mojando.",
+    lleva: ["Boniato en bastones", "Sal y especias", "4 salsas para mojar"],
+  },
+
   "Rabas de calamar": {
     tipo: "plato", foto: "rabas-calamar",
     desc: "Tiras de calamar rebozadas, doradas y crujientes por fuera y tiernas por dentro. Se sirven en pizarra con mayonesa y alioli para mojar y un gajo de limón.",
