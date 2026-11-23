@@ -107,6 +107,12 @@ var FICHAS = {
     lleva: ["Calamar rebozado", "Mayonesa", "Alioli", "Limón"],
   },
 
+  "Empanadillas criollas (2 uds.)": {
+    tipo: "plato", foto: "empanadillas-criollas",
+    desc: "Dos empanadillas criollas de masa fina, horneadas hasta quedar doradas y crujientes. Eliges el relleno: jamón y queso, espinacas, caprese o pollo. Llegan con patatas chips de acompañamiento.",
+    lleva: ["2 empanadillas criollas", "Relleno a elegir: jamón y queso, espinacas, caprese o pollo", "Patatas chips"],
+  },
+
   "Lágrimas de pollo": {
     tipo: "plato", foto: "lagrimas-pollo",
     desc: "Tiras de pollo empanadas y horneadas hasta quedar bien doradas y crujientes, con la carne jugosa por dentro. Se sirven en tabla de madera con la salsa que elijas para mojar: mayonesa, kétchup, barbacoa o baconesa.",
