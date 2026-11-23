@@ -83,6 +83,12 @@ var FICHAS = {
     lleva: ["Masa de pizza", "Tomate", "Mozzarella", "Doble de pepperoni"],
   },
 
+  "Quesadillas 4 quesos con pollo": {
+    tipo: "plato", foto: "quesadilla-pollo",
+    desc: "Quesadilla de cuatro quesos fundidos con dados de pollo, entre dos tortillas de trigo doradas a la plancha. Llega cortada en triángulos, lista para compartir, con guacamole para mojar.",
+    lleva: ["Tortilla de trigo", "Mezcla de 4 quesos", "Pollo en dados", "Guacamole"],
+  },
+
   "Quesadilla 4 quesos con pulled": {
     tipo: "plato", foto: "quesadilla-pulled-2",
     desc: "Nuestra quesadilla de cuatro quesos con pulled pork: carne de cerdo deshilachada, jugosa y con su salsa, entre dos tortillas de trigo doradas. Llega cortada en triángulos, lista para compartir, con guacamole para mojar.",
