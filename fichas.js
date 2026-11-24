@@ -77,6 +77,12 @@ var FICHAS = {
     lleva: ["Masa de pizza", "Tomate", "Mozzarella"],
   },
 
+  "Hamburguesa de pulled pork, queso gratinado": {
+    tipo: "plato", foto: "hamburguesa-pulled",
+    desc: "Pan rústico con pulled pork, carne de cerdo deshilachada y jugosa con su salsa, queso gratinado por encima, lechuga, tomate y mayonesa. Se sirve en pizarra con patatas chips de acompañamiento.",
+    lleva: ["Pan rústico", "Pulled pork", "Queso gratinado", "Lechuga", "Tomate", "Mayonesa", "Patatas chips"],
+  },
+
   "Doble pepperoni": {
     tipo: "plato", foto: "doble-pepperoni",
     desc: "Pizza con base de tomate y mozzarella fundida, cubierta con doble ración de pepperoni que se riza y se tuesta en los bordes al hornearse. Para los que nunca tienen bastante.",
