@@ -65,6 +65,12 @@ var FICHAS = {
     lleva: ["Gyozas de pollo y verduras", "Salsa de soja"],
   },
 
+  "Samosas de pollo al curry (6 uds.)": {
+    tipo: "plato", foto: "samosas-pollo",
+    desc: "Seis samosas de masa fina y crujiente rellenas de pollo al curry, doradas al horno. Se sirven con la salsa que elijas para mojar: agridulce o soja.",
+    lleva: ["6 samosas", "Pollo al curry", "Salsa a elegir: agridulce o soja"],
+  },
+
   "Hamburguesa de pollo con pan rústico": {
     tipo: "plato", foto: "hamburguesa-pollo",
     desc: "Pollo empanado y crujiente en pan rústico con queso fundido, lechuga fresca, una buena rodaja de tomate y kétchup. Llega con patatas chips de acompañamiento.",

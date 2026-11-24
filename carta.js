@@ -18,7 +18,7 @@ const CARTA = [
   ]},
   {id:"asiatico", t:"Asiático", items:[
     ["Gyozas de pollo y vegetales",6.50,7.00],
-    ["Samosas de pollo al curry (6 uds.)",5.00,5.40],
+    ["Samosas de pollo al curry (6 uds.)",5.00,5.40,"Salsa a elegir: agridulce o soja"],
   ]},
   {id:"perritos", t:"Perritos", note:"Con patatas chips incluidas", items:[
     ["Perrito clásico",3.00,3.30],
