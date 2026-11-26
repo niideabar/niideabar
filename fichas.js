@@ -59,6 +59,12 @@ var FICHAS = {
     lleva: ["Pan de perrito", "Salchicha", "Queso gratinado", "Bacon en dados", "Baconesa", "Patatas chips"],
   },
 
+  "Gratinado ibérico": {
+    tipo: "plato", foto: "perrito-gratinado-iberico",
+    desc: "Pan de perrito con su salchicha, cubierto de queso fundido y gratinado y taquitos de jamón ibérico bien tostados, con un hilo de mayonesa por encima. Llega con patatas chips de acompañamiento.",
+    lleva: ["Pan de perrito", "Salchicha", "Queso gratinado", "Taquitos de jamón ibérico", "Mayonesa", "Patatas chips"],
+  },
+
   "Gyozas de pollo y vegetales": {
     tipo: "plato", foto: "gyozas-pollo",
     desc: "Empanadillas japonesas de masa fina rellenas de pollo y verduras, doradas por fuera y jugosas por dentro. Se sirven en tabla de madera con salsa de soja para mojar.",
